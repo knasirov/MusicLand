@@ -1,6 +1,6 @@
 # MusicLand
 
-[Heroku ink](musicland.herokuapp.com)
+[Heroku ink](https://musicland.herokuapp.com)
 
 [Trello link](https://trello.com/b/vwShQznj/musicland)
 
