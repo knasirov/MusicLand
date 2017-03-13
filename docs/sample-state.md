@@ -1,3 +1,4 @@
+```js
 {
   session: {
     currentUser: {
@@ -47,3 +48,4 @@
     image_url: 'appacademy.io/khalil.jpg'
   }
 }
+```
