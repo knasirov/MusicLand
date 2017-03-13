@@ -18,11 +18,11 @@ MusicLand is a web application inspired by SoundCloud built using Ruby on Rails 
 - [ ] Production README
 
 ## Design Docs
-* [View Wireframes](docs/wireframes)
-* [React Components](docs/component-hierarchy.md)
-* [API endpoints](docs/api-endpoints.md)
-* [DB schema](docs/schema.md)
-* [Sample State](docs/sample-state.md)
+* [View Wireframes](wireframes)
+* [React Components](component-hierarchy.md)
+* [API endpoints](api-endpoints.md)
+* [DB schema](schema.md)
+* [Sample State](sample-state.md)
 
 ## Implementation Timeline
 
