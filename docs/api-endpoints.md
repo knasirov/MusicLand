@@ -10,9 +10,9 @@
 
 ### Users
 
-- `GET /api/users/:id` - returns user page
-- `POST /api/users`
-- `PATCH /api/users`
+- `POST  /api/users`
+- `GET   /api/users/:id` - returns user page
+- `PATCH /api/users/:id`
 
 ### Session
 
