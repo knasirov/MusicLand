@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-bootstrap-modal';
 
-import SignupForm from '../session_form/signup_form';
+import SignupFormContainer from '../session_form/signup_form_container';
 import SigninFormContainer from '../session_form/signin_form_container';
 
 class TopBar extends React.Component {
@@ -22,11 +22,17 @@ class TopBar extends React.Component {
 
   handleSubmit() {}
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentUser) {
+      this.setState({ modalIsOpen: false })
+    }
+  }
+
   openModal(e) {
     e.preventDefault();
     let form;
     if (e.target.innerHTML === 'Create account') {
-      form = <SignupForm />
+      form = <SignupFormContainer />
     } else {
       form = <SigninFormContainer />
     }
