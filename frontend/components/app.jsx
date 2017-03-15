@@ -1,11 +1,11 @@
 import React from 'react';
 
-import GreetingContainer from './greeting/greeting_container';
+import TopBarContainer from './top_bar/top_bar_container';
 
 const App = ({ children }) => (
   <div>
-    <h1>Hello from App.jsx</h1>
-    <GreetingContainer />
+    <TopBarContainer />
+    <h1 id="app.jsx">from App.jsx</h1>
     {children}
   </div>
 );
