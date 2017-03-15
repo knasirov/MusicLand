@@ -1,6 +1,8 @@
 import React from 'react';
 import merge from 'lodash/merge';
 
+import { uniqueId } from '../../util/utils';
+
 class SigninForm extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +14,12 @@ class SigninForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  errors() {}
+  errors() {
+    const { errors } = this.props;
+    if (errors.length > 0) {
+      return errors.map( (error, idx) => <li key={uniqueId() + idx}>{error}</li>);
+    }
+  }
 
   update(field) {
     return e => this.setState({ [field]: e.target.value })
@@ -50,7 +57,7 @@ class SigninForm extends React.Component {
           </input>
           <br />
           <br />
-          
+
           <input type='submit' value='Sign in'></input>
         </form>
 

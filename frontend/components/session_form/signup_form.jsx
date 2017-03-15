@@ -1,6 +1,8 @@
 import React from 'react';
 import merge from 'lodash/merge';
 
+import { uniqueId } from '../../util/utils';
+
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,12 @@ class SignupForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  errors() {}
+  errors() {
+    const { errors } = this.props;
+    if (errors.length > 0) {
+      return errors.map( (error, idx) => <li key={uniqueId() + idx}>{error}</li>);
+    }
+  }
 
   update(field) {
     return e => this.setState({ [field]: e.target.value })

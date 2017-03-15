@@ -10,17 +10,13 @@ class TopBar extends React.Component {
     this.state = { modalIsOpen: false, form: "" };
     this.logout = this.logout.bind(this);
     this.openModal = this.openModal.bind(this);
-    this.submitAndClose = this.submitAndClose.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   logout(e) {
     e.preventDefault();
     this.props.logout();
   }
-
-  handleSubmit() {}
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser) {
@@ -37,10 +33,6 @@ class TopBar extends React.Component {
       form = <SigninFormContainer />
     }
     this.setState({ form: form, modalIsOpen: true });
-  }
-
-  submitAndClose() {
-    this.closeModal();
   }
 
   closeModal() {
@@ -76,10 +68,6 @@ class TopBar extends React.Component {
             </Modal.Body>
             <Modal.Footer>
 
-              // Or you can create your own dismiss buttons
-              <button className='btn btn-primary' onClick={this.submitAndClose}>
-                Save
-              </button>
             </Modal.Footer>
           </Modal>
         </div>
