@@ -9,7 +9,7 @@ email           | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 location        | string    |
-image_url       | string    |
+image           |           | via paperclip
 
 ## tracks
 column name | data type | details
@@ -18,7 +18,8 @@ id          | integer   | not null, primary key
 title       | string    | not null
 description | text      | not null
 user_id     | integer   | not null, foreign key (references users), indexed
-image_url   | string    |
+image       | string    | via paperclip
+file        |           | via paperclip
 
 ## comments
 column name | data type | details

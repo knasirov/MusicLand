@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-bootstrap-modal';
+import { Link } from 'react-router';
 
 import SignupFormContainer from '../session_form/signup_form_container';
 import SigninFormContainer from '../session_form/signin_form_container';
@@ -42,37 +43,59 @@ class TopBar extends React.Component {
   render() {
     const { currentUser, logout } = this.props;
 
+    let rightNavBar;
+
     if (currentUser) {
-      return (
-        <div>
-          <span>{currentUser.username}</span>
-          <button onClick={this.logout}>Logout</button>
+      rightNavBar = (
+        <div className="right-navbar">
+          <Link className='top-item' to="/">Upload</Link>
+          <span className="top-item">{currentUser.username}</span>
+          <button className="top-item" onClick={this.logout}>Logout</button>
         </div>
-      );
+      )
     } else {
-      return (
+      rightNavBar = (
         <div>
-          <button onClick={this.openModal}>Sign in</button>
-          <button onClick={this.openModal}>Create account</button>
+          <div className="right-navbar">
+            <Link className='top-item' to="/">Upload</Link>
+            <button className="logged-out-btn top-item" onClick={this.openModal}>Sign in</button>
+            <button className="logged-out-btn create-acc top-item" onClick={this.openModal}>Create account</button>
+          </div>
 
           <Modal
             show={this.state.modalIsOpen}
             onHide={this.closeModal}
             aria-labelledby="ModalHeader"
-          >
+            >
             <Modal.Header closeButton>
-              <Modal.Title id='ModalHeader'>A Title Goes here</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
+              <Modal.Title id='ModalHeader'></Modal.Title>
               {this.state.form}
-            </Modal.Body>
-            <Modal.Footer>
-
-            </Modal.Footer>
+            </Modal.Header>
           </Modal>
         </div>
-      );
+      )
     }
+
+    return (
+      <div className="full-navbar">
+        <div className="top-navbar">
+          <div className="left-navbar">
+            <img className="navbar-logo" alt="logo"
+              src="http://www.adhdnationbook.com/wp-content/uploads/2016/09/LOGO-Soundcloud.png" />
+            <Link className='top-item right-border' to="/">Home</Link>
+            <Link className='top-item right-border' to="/">Collection</Link>
+          </div>
+
+          <div className="searchBar top-item">
+            <form className="search-bar">
+              <input type="search"></input>
+            </form>
+          </div>
+
+          {rightNavBar}
+        </div>
+      </div>
+    );
   }
 }
 

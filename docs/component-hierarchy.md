@@ -4,31 +4,31 @@
  - AuthForm
 
 **HomeContainer**
- - NavBarContainer
-  + LeftNavBar
-  + RightNavBar
- - PlayerContainer
-  + ControlButtons
-  + ProgressBar
-  + Trackinfo
+  - NavBarContainer
+    + LeftNavBar
+    + RightNavBar
+  - PlayerContainer
+    + ControlButtons
+    + ProgressBar
+    + Trackinfo
 
 **TracksIndexContainer**
- - TracksIndex
-  * TracksIndexItem
+  - TracksIndex
+    * TracksIndexItem
 
 **UploadFormContainer**
- - UploadForm
+  - UploadForm
 
 **UserHomeContainer**
- - UserItem
- - TracksIndex
-  * TracksIndexItem
+  - UserItem
+  - TracksIndex
+    * TracksIndexItem
 
 **TrackHomeContainer**
- - TrackItem
- - CommentForm
- - CommentIndex
-  - CommentIndexItem
+  - TrackItem
+  - CommentForm
+  - CommentIndex
+    - CommentIndexItem
 
 
 ## Routes
