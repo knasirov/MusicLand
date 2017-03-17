@@ -48,7 +48,7 @@ class TopBar extends React.Component {
     if (currentUser) {
       rightNavBar = (
         <div className="right-navbar">
-          <Link className='top-item' to="/">Upload</Link>
+          <Link className='top-item' to="/upload">Upload</Link>
           <span className="top-item">{currentUser.username}</span>
           <button className="top-item" onClick={this.logout}>Logout</button>
         </div>
@@ -57,7 +57,7 @@ class TopBar extends React.Component {
       rightNavBar = (
         <div>
           <div className="right-navbar">
-            <Link className='top-item' to="/">Upload</Link>
+            <Link className='top-item' to="/upload">Upload</Link>
             <button className="logged-out-btn top-item" onClick={this.openModal}>Sign in</button>
             <button className="logged-out-btn create-acc top-item" onClick={this.openModal}>Create account</button>
           </div>
@@ -80,9 +80,9 @@ class TopBar extends React.Component {
       <div className="full-navbar">
         <div className="top-navbar">
           <div className="left-navbar">
-            <img className="navbar-logo" alt="logo"
+            <img className="navbar-logo" alt="logo" to='/'
               src="http://www.adhdnationbook.com/wp-content/uploads/2016/09/LOGO-Soundcloud.png" />
-            <Link className='top-item right-border' to="/">Home</Link>
+            <Link className='top-item right-border' to="/stream">Home</Link>
             <Link className='top-item right-border' to="/">Collection</Link>
           </div>
 

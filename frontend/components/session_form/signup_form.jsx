@@ -30,6 +30,11 @@ class SignupForm extends React.Component {
     e.preventDefault();
     this.props.signup(merge({}, this.state));
     this.state = { email: "", username: "", password: "" };
+
+    const { router } = this.props;
+    if (router.location.pathname === '/') {
+      router.push('/stream');
+    }
   }
 
   render() {
@@ -42,16 +47,17 @@ class SignupForm extends React.Component {
         <ul>{this.errors()}</ul>
 
         <form onSubmit={this.handleSubmit}>
-          <label>Enter your email address</label>
+          <label>Enter your email address<i className="red">*</i></label>
           <br />
           <input
+            type='email'
             value={email}
             onChange={this.update('email')}>
           </input>
           <br />
           <br />
 
-          <label>Choose a username</label>
+          <label>Choose a username<i className="red">*</i></label>
           <br />
           <input
             value={username}
@@ -60,7 +66,7 @@ class SignupForm extends React.Component {
           <br />
           <br />
 
-          <label>Choose a password</label>
+          <label>Choose a password<i className="red">*</i></label>
           <br />
           <input
             type="password"

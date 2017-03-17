@@ -31,7 +31,7 @@ class Api::UsersController < ApplicationController
   # figure out how to pass in image in params
   def user_params
     params.require(:user).permit(
-      :email, :username, :password, :location, :image_url
+      :email, :username, :password, :location, :image
     )
   end
 end

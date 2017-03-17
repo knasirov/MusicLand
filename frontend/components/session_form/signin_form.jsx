@@ -29,6 +29,11 @@ class SigninForm extends React.Component {
     e.preventDefault();
     this.props.signin(merge({}, this.state));
     this.state = { email: "", password: "" };
+
+    const { router } = this.props;
+    if ( router.location.pathname === '/') {
+      router.push('/stream');
+    }
   }
 
   render() {
@@ -38,24 +43,21 @@ class SigninForm extends React.Component {
       <div>
         <ul>{this.errors()}</ul>
 
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className='signin-form'>
           <label>Enter your email address</label>
-          <br />
           <input
+            type='email'
             value={email}
             onChange={this.update('email')}>
           </input>
           <br />
-          <br />
 
-          <label>Enter password</label>
-          <br />
+          <label>Enter your password</label>
           <input
             type="password"
             value={password}
             onChange={this.update('password')}>
           </input>
-          <br />
           <br />
 
           <input type='submit' value='Sign in'></input>

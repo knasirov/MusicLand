@@ -1,0 +1,19 @@
+.welcome-header {
+  display: block;
+  position: relative;
+  background-size: cover;
+
+  img {
+  }
+
+  h2 {
+    width: 600px;
+    position: absolute;
+    z-index: 1;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    top: 20%;
+    left: 20%;
+  }
+}

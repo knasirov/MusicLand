@@ -6,7 +6,6 @@ const App = ({ children }) => (
   <div className="window">
     <TopBarContainer/>
     <div className="main-content">
-      <div className="img"/>
       {children}
     </div>
   </div>
