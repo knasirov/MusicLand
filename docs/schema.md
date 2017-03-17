@@ -16,10 +16,10 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 title       | string    | not null
-description | text      | not null
+description | text      |
 user_id     | integer   | not null, foreign key (references users), indexed
-image       | string    | via paperclip
 file        |           | via paperclip
+image       | string    | via paperclip
 
 ## comments
 column name | data type | details

@@ -50,7 +50,8 @@
     id: 1,
     username: 'khalil',
     location: 'San Francisco',
-    image_url: 'appacademy.io/khalil.jpg'
+    image_url: 'appacademy.io/khalil.jpg',
+    tracks: ['track1', 'track2',..]
   }
 }
 ```

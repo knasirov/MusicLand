@@ -6,6 +6,9 @@ class User < ApplicationRecord
   has_attached_file :image, default_url: "https://s3.amazonaws.com/musicland-dev/users/images/default_user.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
+  has_many :comments, dependent: :destroy
+  has_many :tracks, dependent: :destroy
+
   after_initialize :ensure_session_token
 
   attr_reader :password
