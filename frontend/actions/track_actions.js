@@ -15,10 +15,11 @@ export const receiveTrack = track => ({
   track
 });
 
-export const removeTrack = track => ({
-  type: REMOVE_TRACK,
-  track
-});
+// NOT SURE IF I NEED THIS
+// export const removeTrack = track => ({
+//   type: REMOVE_TRACK,
+//   track
+// });
 
 export const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
@@ -50,5 +51,5 @@ export const updateTrack = formData => dispatch => (
 
 export const deleteTrack = id => dispatch => (
   TrackAPIUtil.deleteTrack(id)
-    .then(res => dispatch(removeTrack(res)))
+    // .then(res => dispatch(removeTrack(res)))
 );
