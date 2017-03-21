@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Upload from './upload';
-import { login } from './../../actions/session_actions';
+import { createTrack } from './../../actions/track_actions';
 
 const mapStateToProps = state => ({
   errors: state.session.errors
@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  signin: user => dispatch(login(user))
+  createTrack: formData => dispatch(createTrack(formData))
 
 });
 

@@ -25,7 +25,7 @@ class Upload extends React.Component {
       let fileReader = new FileReader();
       fileReader.onloadend = () => (
         this.setState({ imageFile: file, imageUrl: fileReader.result })
-      ).bind(this);
+      );
 
       if (file) {
         fileReader.readAsDataURL(file);
@@ -35,8 +35,8 @@ class Upload extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let formData = new FormDara();
-    
+    let formData = new FormData();
+
   }
 
   render() {

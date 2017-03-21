@@ -49,7 +49,9 @@ class TopBar extends React.Component {
       rightNavBar = (
         <div className="right-navbar">
           <Link className='top-item' to="/upload">Upload</Link>
-          <span className="top-item">{currentUser.username}</span>
+          <Link className='top-item' to={`/users/${currentUser.id}`}>
+            {currentUser.username}
+          </Link>
           <button className="top-item" onClick={this.logout}>Logout</button>
         </div>
       )

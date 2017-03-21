@@ -46,7 +46,7 @@ class SigninForm extends React.Component {
         <form onSubmit={this.handleSubmit} className='signin-form'>
           <label>Enter your email address</label>
           <input
-            type='email'
+            type='text'
             value={email}
             onChange={this.update('email')}>
           </input>
