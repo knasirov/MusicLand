@@ -12,6 +12,7 @@ class SigninForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoSignin = this.demoSignin.bind(this);
   }
 
   errors() {
@@ -23,6 +24,10 @@ class SigninForm extends React.Component {
 
   update(field) {
     return e => this.setState({ [field]: e.target.value })
+  }
+
+  demoSignin(e) {
+    this.setState({ email: 'demo@music.land', password: 'khalil' }, () => this.handleSubmit(e))
   }
 
   handleSubmit(e) {
@@ -41,27 +46,33 @@ class SigninForm extends React.Component {
 
     return(
       <div>
-        <ul>{this.errors()}</ul>
+        <div className='demo-div'>
+          <button className='demo-btn' onClick={this.demoSignin}>Demo user</button>
+        </div>
 
-        <form onSubmit={this.handleSubmit} className='signin-form'>
-          <label>Enter your email address</label>
-          <input
-            type='text'
-            value={email}
-            onChange={this.update('email')}>
-          </input>
-          <br />
+        <div>
+          <ul>{this.errors()}</ul>
 
-          <label>Enter your password</label>
-          <input
-            type="password"
-            value={password}
-            onChange={this.update('password')}>
-          </input>
-          <br />
+          <form onSubmit={this.handleSubmit} className='signin-form'>
+            <label>Enter your email address</label>
+            <input
+              type='text'
+              value={email}
+              onChange={this.update('email')}>
+            </input>
+            <br />
 
-          <input type='submit' value='Sign in'></input>
-        </form>
+            <label>Enter your password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={this.update('password')}>
+            </input>
+            <br />
+
+            <input type='submit' value='Sign in'></input>
+          </form>
+        </div>
 
       </div>
     )

@@ -4,7 +4,8 @@
   flex-direction: column;
   font-size: 14px;
   font-weight: 600;
-  margin: 180px 0px;
+  margin-bottom: 50px;
+  margin-top: 30px;
 
   input {
     box-sizing: border-box;
@@ -49,3 +50,21 @@ input {
   width: 200px;
   height: 200px;
 }
+ .demo-div {
+   display: flex;
+   justify-content: center;
+   margin-top: 50px;
+   border-bottom: 1px solid #e5e5e5;
+ }
+
+ .demo-btn {
+   background: #f50;
+   padding: 10px;
+   margin-bottom: 30px;
+   border-radius: 5px;
+   color: #BFBFBF;
+
+   &:hover {
+     color: white;
+   }
+ }
