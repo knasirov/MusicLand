@@ -49,7 +49,7 @@ class TopBar extends React.Component {
       rightNavBar = (
         <div className="right-navbar">
           <Link className='top-item' to="/upload">Upload</Link>
-          <Link className='top-item' to={`/users/${currentUser.id}`}>
+          <Link className='top-item' id="username" to={`/users/${currentUser.id}`}>
             {currentUser.username}
           </Link>
           <button className="top-item" onClick={this.logout}>Logout</button>
@@ -86,9 +86,6 @@ class TopBar extends React.Component {
               src="http://www.adhdnationbook.com/wp-content/uploads/2016/09/LOGO-Soundcloud.png" />
             <Link className='top-item right-border' to="/stream">Home</Link>
             <Link className='top-item right-border' to="/">Collection</Link>
-          </div>
-
-          <div className="searchBar top-item">
             <form className="search-bar">
               <input type="search"></input>
             </form>

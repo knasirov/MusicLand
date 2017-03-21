@@ -28,7 +28,7 @@ export const receiveErrors = errors => ({
 
 export const fetchTracks = () => dispatch => (
   TrackAPIUtil.fetchTracks()
-    .then(res => dispatch(fetchTracks(res)))
+    .then(res => dispatch(receiveTracks(res)))
 );
 
 export const fetchTrack = id => dispatch => (

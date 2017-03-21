@@ -4,7 +4,7 @@ import Upload from './upload';
 import { createTrack } from './../../actions/track_actions';
 
 const mapStateToProps = state => ({
-  errors: state.session.errors
+  userId: state.session.currentUser.id
 
 });
 

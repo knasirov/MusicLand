@@ -54,6 +54,7 @@
   height: 46px;
   line-height: 46px;
   text-align: center;
+  overflow: hidden;
 
   &:hover {
     color: #eee;
@@ -68,4 +69,16 @@
 .search-bar {
   background-color: #e5e5e5;
 
+  &:focus {
+    background-color: white;
+  }
+}
+
+#username {
+  max-width: 40px;
+}
+
+.right-navbar {
+  display: flex;
+  flex-wrap: nowrap;
 }

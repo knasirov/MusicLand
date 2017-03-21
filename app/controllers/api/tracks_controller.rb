@@ -40,10 +40,10 @@ class Api::TracksController < ApplicationController
   end
 
   private
-  # figure out how to pass in image and file in params
+
   def track_params
     params.require(:track).permit(
-      :title, :desciprtion, :user_id, :image, :file
+      :title, :description, :user_id, :image, :file
     )
   end
 end

@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap-modal';
 
 import EditFormContainer from './edit_form_container.jsx';
+import TrackListItem from '../track/track_list_item';
 
 class User extends React.Component {
   constructor(props) {
@@ -26,6 +27,17 @@ class User extends React.Component {
 
   render() {
     const { id, username, location, imageUrl, tracks, errors, currentUser } = this.props;
+    console.log(this.props);
+    let listItems;
+
+    if (tracks) {
+      listItems = tracks.map( (track, idx) => (
+        <TrackListItem key={idx}
+          title={track.title}
+          userName={username}
+          imageUrl={track.image_url}/>
+      ))
+    }
 
     let edit;
     if (currentUser && id === currentUser.id) {
@@ -62,15 +74,20 @@ class User extends React.Component {
           <div className='user-img'>
             <img src={imageUrl} />
           </div>
+          <div className='user-info'>
+            <span className='username'>{username}</span>
+            <span className='location'>{location}</span>
+          </div>
         </header>
-
-        <div className='middle-bar'>
-          <h3>Tracks</h3>
-          <div>{edit}</div>
+        <div className='outer-middle'>
+          <div className='middle-bar'>
+            <h3>Tracks</h3>
+            <div>{edit}</div>
+          </div>
         </div>
 
         <ul className='track-list'>
-
+          {listItems}
         </ul>
       </div>
     )
