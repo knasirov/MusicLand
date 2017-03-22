@@ -15,7 +15,8 @@ class Stream extends React.Component {
         userName={track.user_name}
         userId={track.user_id}
         title={track.title}
-        imageUrl={track.image_url} />
+        imageUrl={track.image_url}
+        fetchCurrentTrack={this.props.fetchCurrentTrack} />
     ));
 
     return(

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class Player extends React.Component {
   constructor(props) {
@@ -9,6 +10,12 @@ class Player extends React.Component {
 
   componentDidMount() {
     this.audio = document.getElementById('audio-tag');
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.audio.src = nextProps.currentTrack.audio_url;
+    this.audio.play();
+    this.setState({ nowPlaying: true });
   }
 
   pressPlay() {
@@ -28,6 +35,9 @@ class Player extends React.Component {
     } else {
       playPause = (<i className="fa fa-play" aria-hidden="true"></i>)
     }
+
+    console.log(this.props.currentTrack);
+    const { id, title, user_id, user_name, image_url, audio_url } = this.props.currentTrack;
 
     return (
       <div className='extended-player'>
@@ -49,11 +59,18 @@ class Player extends React.Component {
           </div>
 
           <div className='player-track-detail'>
-            
+            <div className='player-img'>
+              <img src={image_url} />
+            </div>
+
+            <div className='player-info'>
+              <Link to={`/users/${user_id}`} className="player-user">{user_name}</Link>
+              <Link to={`/tracks/${id}`} className="player-track">{title}</Link>
+            </div>
           </div>
 
           <audio id='audio-tag'>
-            <source src='https://s3.amazonaws.com/musicland-dev/tracks/files/000/000/001/original/pink_panther.mp3'></source>
+            <source src={audio_url}></source>
           </audio>
         </div>
       </div>

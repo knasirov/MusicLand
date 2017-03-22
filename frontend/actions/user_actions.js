@@ -16,11 +16,9 @@ export const receiveErrors = errors => ({
 export const fetchUser = id => dispatch => (
   UserAPIUtil.fetchUser(id)
     .then(res => dispatch(receiveUser(res)))
-    .fail(err => console.log((err)))
 );
 
 export const updateUser = formData => dispatch => (
   UserAPIUtil.updateUser(formData)
     .then(res => dispatch(receiveUser(res)))
-    // .fail(err => dispatch(receiveErrors(err.responseJSON)))
 );

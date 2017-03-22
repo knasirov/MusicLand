@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   session: sessionReducer,
   user: userReducer,
   tracks: tracksIndexReducer,
-  currentTrack: currentTrackReducer
+  currentTrack: currentTrackReducer,
 });
 
 export default rootReducer;

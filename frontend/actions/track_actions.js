@@ -4,6 +4,7 @@ export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_TRACK = "RECEIVE_TRACK";
 export const REMOVE_TRACK = "REMOVE_TRACK";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const RECEIVE_CURRENT_TRACK = "RECEIVE_CURRENT_TRACK";
 
 export const receiveTracks = tracks => ({
   type: RECEIVE_TRACKS,
@@ -12,6 +13,12 @@ export const receiveTracks = tracks => ({
 
 export const receiveTrack = track => ({
   type: RECEIVE_TRACK,
+  track
+});
+
+
+export const receiveCurrentTrack = track => ({
+  type: RECEIVE_CURRENT_TRACK,
   track
 });
 
@@ -34,6 +41,11 @@ export const fetchTracks = () => dispatch => (
 export const fetchTrack = id => dispatch => (
   TrackAPIUtil.fetchTrack(id)
     .then(res => dispatch(receiveTrack(res)))
+);
+
+export const fetchCurrentTrack = id => dispatch => (
+  TrackAPIUtil.fetchTrack(id)
+    .then(res => dispatch(receiveCurrentTrack(res)))
 );
 
 

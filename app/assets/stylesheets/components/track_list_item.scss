@@ -6,6 +6,7 @@
 .li-detail {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .li-img {
@@ -24,4 +25,28 @@
     min-width: 100%;
     transform: translate(-50%, -50%);
   }
+}
+
+.detail-n-waveform {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-n-detail {
+  display: flex;
+}
+
+.play-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  color: #f50;
+}
+
+.tl-user {
+  color: #999;
+  font-size: 12px;
 }
