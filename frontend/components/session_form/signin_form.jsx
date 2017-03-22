@@ -13,6 +13,7 @@ class SigninForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoSignin = this.demoSignin.bind(this);
+    this.typeSlowly = this.typeSlowly.bind(this);
   }
 
   errors() {
@@ -27,7 +28,17 @@ class SigninForm extends React.Component {
   }
 
   demoSignin(e) {
-    this.setState({ email: 'demo@music.land', password: 'khalil' }, () => this.handleSubmit(e))
+    this.typeSlowly('email', 'demo@music.land', 0);
+    setTimeout( () => this.typeSlowly('password', 'khalil', 0), 1000);
+    setTimeout( () => this.handleSubmit(e), 1500);
+  }
+
+  typeSlowly(field, text, index) {
+    if (index <= text.length) {
+      this.setState({ [field]: text.substring(0, index++) }, () => (
+        setTimeout( () => this.typeSlowly(field, text, index), 50)
+      ))
+    }
   }
 
   handleSubmit(e) {

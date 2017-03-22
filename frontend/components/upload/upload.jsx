@@ -12,6 +12,7 @@ class Upload extends React.Component {
       audioFile: null,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateAudio = this.updateAudio.bind(this);
   }
 
   update(field) {
@@ -30,8 +31,8 @@ class Upload extends React.Component {
     }
   }
 
-  updateAudio() {
-    return e => this.setState({ audioFile: e.currentTarget.files[0] })
+  updateAudio(e) {
+    this.setState({ audioFile: e.currentTarget.files[0] })
   }
 
   handleSubmit(e) {
@@ -53,41 +54,64 @@ class Upload extends React.Component {
   }
 
   render() {
-    const { title, description, imageUrl } = this.state;
+    const { title, description, imageUrl, audioFile } = this.state;
+
+    if (audioFile) {
+      console.log(audioFile);
+    }
+    let fileLabel = "Choose a file to upload"
+    let form2;
+
+    if (audioFile) {
+      fileLabel = audioFile.name;
+
+      form2 = (
+        <div className='form2'>
+          <div className='upload-img-preview'>
+            <img src={imageUrl} />
+            <div className='upload-img-btn'>
+              <i className="fa fa-camera" aria-hidden="true"></i>
+              <label>
+                <input type="file" onChange={this.updateImage()} className='file-input'/>
+                Choose image
+              </label>
+            </div>
+          </div>
+
+          <div className='upload-detail-input'>
+            <label>Title<i className="red">*</i></label>
+            <input
+              value={title}
+              placeholder="Name your track"
+              onChange={this.update('title')}>
+            </input>
+            <br />
+
+            <label>Description</label>
+            <input
+              value={description}
+              placeholder="Descirbe your track"
+              onChange={this.update('description')}>
+            </input>
+            <br />
+
+            <input type="submit" value="Save"></input>
+          </div>
+        </div>
+      )
+    }
 
     return(
       <div className='upload-main'>
-        <form onSubmit={this.handleSubmit}>
-          <label className="input-label">
-            <input type="file" onChange={this.updateAudio()} className='file-input'/>
-            Choose a file to upload
-          </label>
-          <br />
+        <form onSubmit={this.handleSubmit} className='upload-form'>
+          <div className='form1'>
+            <label className="audio-label">
+              <input type="file" onChange={this.updateAudio} className='file-input'/>
+              {fileLabel}
+            </label>
+          </div>
 
-          <label className="input-label">
-            <input type="file" onChange={this.updateImage()} className='file-input'/>
-            Choose image
-          </label>
-          <img src={imageUrl} />
-          <br />
-
-          <label>Title<i className="red">*</i></label>
-          <input
-            value={title}
-            placeholder="Name your track"
-            onChange={this.update('title')}>
-          </input>
-          <br />
-
-          <label>Description</label>
-          <input
-            value={description}
-            placeholder="Descirbe your track"
-            onChange={this.update('description')}>
-          </input>
-          <br />
-
-          <input type="submit" value="Save"></input>
+          {form2}
         </form>
       </div>
     )

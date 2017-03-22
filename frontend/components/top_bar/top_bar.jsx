@@ -82,8 +82,10 @@ class TopBar extends React.Component {
       <div className="full-navbar">
         <div className="top-navbar">
           <div className="left-navbar">
-            <img className="navbar-logo" alt="logo" to='/'
-              src="http://www.adhdnationbook.com/wp-content/uploads/2016/09/LOGO-Soundcloud.png" />
+            <a href='/'>
+              <img className="navbar-logo" alt="logo" to='/'
+                src="http://www.adhdnationbook.com/wp-content/uploads/2016/09/LOGO-Soundcloud.png" />
+            </a>
             <Link className='top-item right-border' to="/stream">Home</Link>
             <Link className='top-item right-border' to="/">Collection</Link>
             <form className="search-bar">

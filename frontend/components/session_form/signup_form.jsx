@@ -46,34 +46,28 @@ class SignupForm extends React.Component {
 
         <ul>{this.errors()}</ul>
 
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className='signup-form'>
           <label>Enter your email address<i className="red">*</i></label>
-          <br />
           <input
             type='email'
             value={email}
             onChange={this.update('email')}>
           </input>
           <br />
-          <br />
 
           <label>Choose a username<i className="red">*</i></label>
-          <br />
           <input
             value={username}
             onChange={this.update('username')}>
           </input>
           <br />
-          <br />
 
           <label>Choose a password<i className="red">*</i></label>
-          <br />
           <input
             type="password"
             value={password}
             onChange={this.update('password')}>
           </input>
-          <br />
           <br />
 
           <input type='submit' value='Continue'></input>

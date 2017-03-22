@@ -27,7 +27,6 @@ class User extends React.Component {
 
   render() {
     const { id, username, location, imageUrl, tracks, errors, currentUser } = this.props;
-    console.log(this.props);
     let listItems;
 
     if (tracks) {
