@@ -16,6 +16,10 @@ class User extends React.Component {
     this.props.fetchUser(this.props.id);
   };
 
+  componentWillUpdate() {
+    this.props.fetchUser(this.props.id);
+  }
+
   openModal(e) {
     e.preventDefault();
     this.setState({ modalIsOpen: true })

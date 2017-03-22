@@ -47,18 +47,13 @@ class Upload extends React.Component {
     if (imageFile) {
       formData.append('track[image]', imageFile);
     }
-    // for (var pair of formData.entries()) {
-    //   console.log(pair[0]+ ', ' + pair[1]);
-    // }
-    this.props.createTrack(formData).then(res => console.log(res))
+
+    this.props.createTrack(formData).then(res => this.props.router.push(`/users/${res.track.user_id}`))
   }
 
   render() {
     const { title, description, imageUrl, audioFile } = this.state;
 
-    if (audioFile) {
-      console.log(audioFile);
-    }
     let fileLabel = "Choose a file to upload"
     let form2;
 
