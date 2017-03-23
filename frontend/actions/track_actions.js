@@ -28,7 +28,7 @@ export const receiveCurrentTrack = track => ({
 //   track
 // });
 
-export const receiveErrors = errors => ({
+export const receiveTrackErrors = errors => ({
   type: RECEIVE_ERRORS,
   errors
 });
@@ -52,7 +52,7 @@ export const fetchCurrentTrack = id => dispatch => (
 export const createTrack = formData => dispatch => (
   TrackAPIUtil.createTrack(formData)
     .then(res => dispatch(receiveTrack(res)))
-    .fail(err => dispatch(receiveErrors(err.responseJSON)))
+    .fail(err => dispatch(receiveTrackErrors(err.responseJSON)))
 );
 
 export const updateTrack = formData => dispatch => (

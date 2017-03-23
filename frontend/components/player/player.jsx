@@ -36,7 +36,6 @@ class Player extends React.Component {
       playPause = (<i className="fa fa-play" aria-hidden="true"></i>)
     }
 
-    console.log(this.props.currentTrack);
     const { id, title, user_id, user_name, image_url, audio_url } = this.props.currentTrack;
 
     return (

@@ -36,6 +36,7 @@ class User extends React.Component {
     if (tracks) {
       listItems = tracks.map( (track, idx) => (
         <TrackListItem key={idx}
+          id={track.id}
           title={track.title}
           userName={username}
           imageUrl={track.image_url}/>
