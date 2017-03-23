@@ -11,7 +11,6 @@ const mapStateToProps = ({ trackDetail, session }, { params }) => ({
   userName: trackDetail.user_name,
   userImg: trackDetail.user_img,
   imageUrl: trackDetail.image_url,
-  // audioUrl: trackDetail.audio_url,
   comments: trackDetail.comments,
   currentUser: session.currentUser
 });

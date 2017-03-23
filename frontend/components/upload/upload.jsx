@@ -37,12 +37,16 @@ class Upload extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (!this.props.currentUser) {
+      document.getElementById('signin').click();
+      return;
+    }
 
     const { title, description, imageFile, audioFile } = this.state;
     let formData = new FormData();
     formData.append('track[title]', title);
     formData.append('track[description]', description);
-    formData.append('track[user_id]', this.props.userId);
+    formData.append('track[user_id]', this.props.currentUser.id);
     formData.append('track[file]', audioFile);
     if (imageFile) {
       formData.append('track[image]', imageFile);

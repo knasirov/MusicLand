@@ -11,16 +11,19 @@ class Track extends React.Component {
     this.state = { commentBody: "" };
     this.updateComment = this.updateComment.bind(this);
     this.submitComment = this.submitComment.bind(this);
+    this.checkSignin = this.checkSignin.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchTrack(this.props.id)
+  componentWillMount() {
+    this.props.fetchTrack(this.props.id);
   }
 
-  // componentWillUpdate() {
-  //   this.props.fetchTrack(this.props.id)
-  //   console.log('dont do it');
-  // }
+  checkSignin() {
+    if (!this.props.currentUser) {
+      document.getElementById('comment-form').blur();
+      document.getElementById('signin').click();
+    }
+  }
 
   updateComment(e) {
     this.setState({ commentBody: e.target.value })
@@ -43,7 +46,9 @@ class Track extends React.Component {
 
   render() {
     const { id, title, description, userId, userName, userImg, imageUrl, comments, currentUser } = this.props;
-
+    // console.log(this.props);
+    // console.log(`!comments: ${!comments}`);
+    // console.log(`length: ${comments.length}`);
     let commentsList;
     if (!comments || (comments.length === 0)) {
       commentsList = (
@@ -61,7 +66,7 @@ class Track extends React.Component {
           userName={comment.user_name}
           userImg={comment.user_img}
           trackUserId={userId}
-          currentUserId={currentUser.id}
+          currentUser={currentUser}
           trackId={id}
           fetchTrack={this.props.fetchTrack} />
       ))
@@ -104,8 +109,10 @@ class Track extends React.Component {
             </div>
 
             <div className='comment-form'>
-              <input className='comment-input'
+              <input id='comment-form'
+                className='comment-input'
                 value={this.state.commentBody}
+                onFocus={this.checkSignin}
                 placeholder='Write a comment'
                 onChange={this.updateComment}
                 onKeyPress={this.submitComment}>

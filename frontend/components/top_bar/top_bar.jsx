@@ -27,12 +27,11 @@ class TopBar extends React.Component {
 
   openModal(e) {
     e.preventDefault();
-    let form;
+    let form = <SigninFormContainer />
     if (e.target.innerHTML === 'Create account') {
       form = <SignupFormContainer />
-    } else {
-      form = <SigninFormContainer />
     }
+
     this.setState({ form: form, modalIsOpen: true });
   }
 
@@ -60,8 +59,19 @@ class TopBar extends React.Component {
         <div>
           <div className="right-navbar">
             <Link className='top-item' to="/upload">Upload</Link>
-            <button className="logged-out-btn top-item" onClick={this.openModal}>Sign in</button>
-            <button className="logged-out-btn create-acc top-item" onClick={this.openModal}>Create account</button>
+
+            <button
+              className="logged-out-btn top-item"
+              onClick={this.openModal}
+              id='signin'>
+              Sign in
+            </button>
+
+            <button
+              className="logged-out-btn create-acc top-item"
+              onClick={this.openModal}>
+              Create account
+            </button>
           </div>
 
           <Modal

@@ -15,10 +15,10 @@ class Comment extends React.Component {
   }
 
   render() {
-    const { id, body, userId, userName, userImg, trackUserId, currentUserId } = this.props;
+    const { id, body, userId, userName, userImg, trackUserId, currentUser } = this.props;
 
     let deleteButton;
-    if ((currentUserId === userId) || (currentUserId === trackUserId)) {
+    if (currentUser && ((currentUser.id === userId) || (currentUser.id === trackUserId))) {
       deleteButton = (
         <button className="comment-delete-btn" onClick={this.handleDelete}>
           <i className="fa fa-trash" aria-hidden="true"></i>
