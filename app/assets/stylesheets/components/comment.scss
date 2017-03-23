@@ -1,7 +1,24 @@
 .comment-li {
   width: 100%;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 10px 0;
+
+  &:hover .comment-delete-btn {
+    display: block;
+  }
+}
+
+.comment-delete-btn {
+  display: none;
+  padding: 4px 5px;
+  border: 1px solid #999;
+  border-radius: 5px;
+}
+
+.img-n-detail {
+  display: flex;
 }
 
 .comment-img {

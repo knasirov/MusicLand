@@ -29,11 +29,14 @@ class Track extends React.Component {
   submitComment(e) {
     const { currentUser, id, fetchTrack } = this.props;
     if (e.key === 'Enter') {
-      createComment({ comment: {
-        body: this.state.commentBody,
-        user_id: currentUser.id,
-        track_id: id
-      }}).then(() => fetchTrack(id)).then(() => console.log(this.props))
+      createComment({
+        comment: {
+          body: this.state.commentBody,
+          user_id: currentUser.id,
+          track_id: id
+        }
+      }).then(() => fetchTrack(id))
+
       this.setState({ commentBody: "" });
     }
   }
@@ -56,10 +59,13 @@ class Track extends React.Component {
           body={comment.body}
           userId={comment.user_id}
           userName={comment.user_name}
-          userImg={comment.user_img} />
+          userImg={comment.user_img}
+          trackUserId={userId}
+          currentUserId={currentUser.id}
+          trackId={id}
+          fetchTrack={this.props.fetchTrack} />
       ))
     }
-    console.log(commentsList);
 
     let descriptionBox;
     if (description) {
