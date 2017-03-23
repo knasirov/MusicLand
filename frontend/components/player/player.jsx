@@ -4,12 +4,14 @@ import { Link } from 'react-router';
 class Player extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { nowPlaying: false };
     this.pressPlay = this.pressPlay.bind(this);
-    this.state = { nowPlaying: false }
+    this.updatePlayer = this.updatePlayer.bind(this);
   }
 
   componentDidMount() {
     this.audio = document.getElementById('audio-tag');
+    this.progressBar = document.getElementById('progress-bar');
   }
 
   componentWillReceiveProps(nextProps) {
@@ -19,6 +21,9 @@ class Player extends React.Component {
   }
 
   pressPlay() {
+    // if (this.audio) {
+    //   when no audioUrl, just return
+    // }
     if (this.state.nowPlaying) {
       this.audio.pause();
       this.setState({ nowPlaying: false });
@@ -28,12 +33,34 @@ class Player extends React.Component {
     }
   }
 
+  updatePlayer() {
+    this.progressBar.value = this.audio.currentTime/this.audio.duration;
+    this.forceUpdate();
+  }
+
   render() {
     let playPause
     if (this.state.nowPlaying) {
       playPause = (<i className="fa fa-pause" aria-hidden="true"></i>)
     } else {
       playPause = (<i className="fa fa-play" aria-hidden="true"></i>)
+    }
+
+    const convertTime = function(t) {
+      if (t % 60 < 10) {
+        return `${Math.floor(t/60)}:0${Math.floor(t % 60)}`
+      } else {
+        return `${Math.floor(t/60)}:${Math.floor(t % 60)}`
+      }
+    }
+
+    let currentTime, duration;
+    if (this.audio && this.audio.duration) {
+      currentTime = convertTime(this.audio.currentTime);
+      duration = convertTime(this.audio.duration);
+    } else {
+      currentTime = '0:00';
+      duration = '0:00';
     }
 
     const { id, title, user_id, user_name, image_url, audio_url } = this.props.currentTrack;
@@ -54,7 +81,12 @@ class Player extends React.Component {
           </div>
 
           <div className='progress-bar'>
+            <span>{currentTime}</span>
 
+            <progress id='progress-bar' value='0'>
+            </progress>
+
+            <span>{duration}</span>
           </div>
 
           <div className='player-track-detail'>
@@ -68,7 +100,7 @@ class Player extends React.Component {
             </div>
           </div>
 
-          <audio id='audio-tag'>
+          <audio id='audio-tag' loop='true' onTimeUpdate={this.updatePlayer}>
             <source src={audio_url}></source>
           </audio>
         </div>

@@ -128,7 +128,7 @@ class Track extends React.Component {
 
 
             <ul className='comments-list'>
-              <li className='comments-header'>Comments</li>
+              <span className='comments-header'>Comments</span>
               {commentsList}
             </ul>
           </div>
