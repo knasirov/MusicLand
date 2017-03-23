@@ -2,12 +2,15 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import Comment from '../comment/comment';
+import { createComment } from '../../util/comment_api_util';
 
 class Track extends React.Component {
   constructor(props) {
     super(props);
-    this.props.fetchTrack(this.props.id)
-
+    this.props.fetchTrack(this.props.id);
+    this.state = { commentBody: "" };
+    this.updateComment = this.updateComment.bind(this);
+    this.submitComment = this.submitComment.bind(this);
   }
 
   componentDidMount() {
@@ -19,15 +22,31 @@ class Track extends React.Component {
   //   console.log('dont do it');
   // }
 
+  updateComment(e) {
+    this.setState({ commentBody: e.target.value })
+  }
+
+  submitComment(e) {
+    const { currentUser, id, fetchTrack } = this.props;
+    if (e.key === 'Enter') {
+      createComment({ comment: {
+        body: this.state.commentBody,
+        user_id: currentUser.id,
+        track_id: id
+      }}).then(() => fetchTrack(id)).then(() => console.log(this.props))
+      this.setState({ commentBody: "" });
+    }
+  }
+
   render() {
     const { id, title, description, userId, userName, userImg, imageUrl, comments, currentUser } = this.props;
 
-    console.log(this.props);
     let commentsList;
     if (!comments || (comments.length === 0)) {
       commentsList = (
         <div className="no-comments">
-          My code isn't broken. Be the first one to comment and check for yourself!
+          <span>Seems a little quiet over here</span>
+          <span>Be the first one to comment on this track</span>
         </div>
       )
     } else {
@@ -40,15 +59,23 @@ class Track extends React.Component {
           userImg={comment.user_img} />
       ))
     }
+    console.log(commentsList);
 
     let descriptionBox;
     if (description) {
-      descriptionBox = (<div>{description}</div>)
+      descriptionBox = (<div className='description'>{description}</div>)
     }
 
     let userButtons;
     if (currentUser && userId === currentUser.id) {
       // edit and delete buttons
+    }
+
+    let commentUserImg;
+    if (currentUser) {
+      commentUserImg = currentUser.image_url;
+    } else {
+      commentUserImg = "https://s3.amazonaws.com/musicland-dev/users/images/default_user.png"
     }
 
     return (
@@ -65,8 +92,19 @@ class Track extends React.Component {
         </div>
 
         <div className='track-page-middle'>
-          <div className='comment-form'>
-            <input></input>
+          <div className='comment-box'>
+            <div className='comment-user-img'>
+              <img src={commentUserImg} />
+            </div>
+
+            <div className='comment-form'>
+              <input className='comment-input'
+                value={this.state.commentBody}
+                placeholder='Write a comment'
+                onChange={this.updateComment}
+                onKeyPress={this.submitComment}>
+              </input>
+            </div>
           </div>
           {userButtons}
         </div>
@@ -76,14 +114,15 @@ class Track extends React.Component {
             <div className='owner-img'>
               <img src={userImg} />
             </div>
-            <span>{userName}</span>
+            <Link to={`/users/${userId}`}>{userName}</Link>
           </div>
 
           <div className='description-n-comments'>
             <div> {descriptionBox}</div>
 
 
-            <ul>
+            <ul className='comments-list'>
+              <li className='comments-header'>Comments</li>
               {commentsList}
             </ul>
           </div>

@@ -1,0 +1,42 @@
+.comment-li {
+  width: 100%;
+  display: flex;
+  margin: 10px 0;
+}
+
+.comment-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+
+  img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    object-fit: cover;
+    min-height: 100%;
+    min-width: 100%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.comment-username {
+  color: #999;
+  font-size: 12px;
+
+  &:hover {
+    color: black;
+  }
+}
+
+.comment-body {
+  font-size: 12px;
+}
+
+.comment-detail {
+  display: flex;
+  flex-direction: column;
+  padding: 3px 10px;
+}

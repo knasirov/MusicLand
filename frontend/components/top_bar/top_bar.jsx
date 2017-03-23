@@ -86,11 +86,8 @@ class TopBar extends React.Component {
               <img className="navbar-logo" alt="logo" to='/'
                 src="http://www.adhdnationbook.com/wp-content/uploads/2016/09/LOGO-Soundcloud.png" />
             </a>
-            <Link className='top-item right-border' to="/stream">Home</Link>
-            <Link className='top-item right-border' to="/">Collection</Link>
-            <form className="search-bar">
-              <input type="search"></input>
-            </form>
+            <Link className='top-item right-border' to="/">Home</Link>
+            <Link className='top-item right-border' to="/stream">Stream</Link>
           </div>
 
           {rightNavBar}
