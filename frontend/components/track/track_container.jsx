@@ -18,7 +18,6 @@ const mapStateToProps = ({ trackDetail, session }, { params }) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchTrack: id => dispatch(fetchTrack(id)),
-  updateTrack: formData => dispatch(updateTrack(formData)),
   deleteTrack: id => dispatch(deleteTrack(id))
 });
 

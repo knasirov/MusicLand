@@ -25,7 +25,7 @@ export const createTrack = formData => (
 
 export const updateTrack = formData => (
   $.ajax({
-    url: `api/tracks/${formData.track.id}`,
+    url: `api/tracks/${parseInt(formData.get('track[id]'))}`,
     method: "PATCH",
     dataType: 'json',
     contentType: false,

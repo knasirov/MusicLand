@@ -1,18 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Modal from 'react-bootstrap-modal';
 
 import Comment from '../comment/comment';
 import { createComment } from '../../util/comment_api_util';
+import EditTrackFormContainer from './edit_track_form_container';
 
 class Track extends React.Component {
   constructor(props) {
     super(props);
-    this.props.fetchTrack(this.props.id);
-    this.state = { commentBody: "" };
+
+    this.state = {
+      modalIsOpen: false,
+      commentBody: "",
+    };
+
     this.updateComment = this.updateComment.bind(this);
     this.submitComment = this.submitComment.bind(this);
     this.checkSignin = this.checkSignin.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentWillMount() {
@@ -43,6 +51,15 @@ class Track extends React.Component {
 
       this.setState({ commentBody: "" });
     }
+  }
+
+  openModal(e) {
+    e.preventDefault();
+    this.setState({ modalIsOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
   }
 
   handleDelete(e) {
@@ -86,8 +103,27 @@ class Track extends React.Component {
     if (currentUser && userId === currentUser.id) {
       userButtons = (
         <div className='track-ud-btns'>
+          <button className='track-page-edit-btn' onClick={this.openModal}>Edit
+          </button>
+
           <button className='track-page-delete-btn' onClick={this.handleDelete}>Delete
           </button>
+
+          <Modal
+            show={this.state.modalIsOpen}
+            onHide={this.closeModal}
+            aria-labelledby="ModalHeader"
+            >
+            <Modal.Header closeButton>
+              <Modal.Title id='ModalHeader'></Modal.Title>
+              <EditTrackFormContainer
+                id={id}
+                title={title}
+                description={description}
+                imageUrl={imageUrl}
+                closeModal={ () => this.closeModal() } />
+            </Modal.Header>
+          </Modal>
         </div>
       )
     }
