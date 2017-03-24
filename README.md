@@ -14,9 +14,10 @@ MusicLand is a web application inspired by SoundCloud. Users can discover artist
 - Image uploading for users and tracks
 - Commenting on tracks
 
+
 ## Project Design
 
-MusicLand was built and designed in two weeks
+MusicLand was built and designed in two weeks. A [proposal](./docs/README.md) was drafted to guide through the development process. The [docs](./docs) folder includes database schema, component hierarchy, sample state, and api-endpoints files that were basis for this project.
 
 
 ## Technology
