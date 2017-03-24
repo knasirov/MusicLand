@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import Track from './track';
-import { fetchTrack, updateTrack } from '../../actions/track_actions';
+import { fetchTrack, updateTrack, deleteTrack } from '../../actions/track_actions';
 
 const mapStateToProps = ({ trackDetail, session }, { params }) => ({
   id: parseInt(params.trackId),
@@ -17,10 +18,11 @@ const mapStateToProps = ({ trackDetail, session }, { params }) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchTrack: id => dispatch(fetchTrack(id)),
-  updateTrack: formData => dispatch(updateTrack(formData))
+  updateTrack: formData => dispatch(updateTrack(formData)),
+  deleteTrack: id => dispatch(deleteTrack(id))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Track)
+)(withRouter(Track))

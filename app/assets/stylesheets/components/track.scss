@@ -102,7 +102,7 @@
   width: 65%;
   height: 40px;
   display: flex;
-  margin: 30px;
+  margin: 5px 0;
 }
 
 .comment-user-img {
@@ -125,6 +125,7 @@
 .track-page-middle {
   display: flex;
   flex-direction: column;
+  padding: 30px;
 }
 
 .comment-form {
@@ -173,5 +174,15 @@
 
   li:nth-of-type(2n) {
     background-color: #e5e5e5;
+  }
+}
+
+.track-ud-btns {
+  font-size: 14px;
+
+  button {
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 1px 3px;
   }
 }

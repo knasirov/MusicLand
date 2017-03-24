@@ -12,6 +12,7 @@ class Track extends React.Component {
     this.updateComment = this.updateComment.bind(this);
     this.submitComment = this.submitComment.bind(this);
     this.checkSignin = this.checkSignin.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentWillMount() {
@@ -26,12 +27,10 @@ class Track extends React.Component {
   }
 
   updateComment(e) {
-    e.preventDefault();
     this.setState({ commentBody: e.target.value })
   }
 
   submitComment(e) {
-    e.preventDefault();
     const { currentUser, id, fetchTrack } = this.props;
     if (e.key === 'Enter') {
       createComment({
@@ -46,11 +45,15 @@ class Track extends React.Component {
     }
   }
 
+  handleDelete(e) {
+    e.preventDefault();
+    let id = this.props.userId;
+    this.props.deleteTrack(this.props.id)
+      .then( () => this.props.router.push(`/users/${id}`))
+  }
+
   render() {
     const { id, title, description, userId, userName, userImg, imageUrl, comments, currentUser } = this.props;
-    // console.log(this.props);
-    // console.log(`!comments: ${!comments}`);
-    // console.log(`length: ${comments.length}`);
     let commentsList;
     if (!comments || (comments.length === 0)) {
       commentsList = (
@@ -81,7 +84,12 @@ class Track extends React.Component {
 
     let userButtons;
     if (currentUser && userId === currentUser.id) {
-      // edit and delete buttons
+      userButtons = (
+        <div className='track-ud-btns'>
+          <button className='track-page-delete-btn' onClick={this.handleDelete}>Delete
+          </button>
+        </div>
+      )
     }
 
     let commentUserImg;
@@ -113,14 +121,15 @@ class Track extends React.Component {
             <div className='comment-form'>
               <input id='comment-form'
                 className='comment-input'
+                onChange={this.updateComment}
                 value={this.state.commentBody}
                 onFocus={this.checkSignin}
                 placeholder='Write a comment'
-                onChange={this.updateComment}
                 onKeyPress={this.submitComment}>
               </input>
             </div>
           </div>
+
           {userButtons}
         </div>
 
