@@ -32,17 +32,6 @@ class SigninForm extends React.Component {
     this.setState({ email: 'DemoUser@MusicLand', password: 'randompassword' }, () => (
       this.handleSubmit(e)
     ))
-    // this.typeSlowly('email', 'DemoUser@MusicLand', 0);
-    // setTimeout( () => this.typeSlowly('password', 'randompassword', 0), 1500);
-    // setTimeout( () => this.handleSubmit(e), 5000);
-  }
-
-  typeSlowly(field, text, index) {
-    if (index <= text.length) {
-      this.setState({ [field]: text.substring(0, index++) }, () => (
-        setTimeout( () => this.typeSlowly(field, text, index), 50)
-      ))
-    }
   }
 
   handleSubmit(e) {

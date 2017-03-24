@@ -41,11 +41,8 @@ class EditTrackForm extends React.Component {
     if (imageFile) {
       formData.append('track[image]', imageFile);
     }
-    for (var pair of formData.entries()) {
-    console.log(pair[0]+ ', ' + pair[1]);
-}
 
-    this.props.updateTrack(formData).then(res => console.log(res)).then(() => this.props.closeModal())
+    this.props.updateTrack(formData).then(() => this.props.closeModal())
   }
 
   render() {
