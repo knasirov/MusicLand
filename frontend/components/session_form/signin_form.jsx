@@ -13,7 +13,6 @@ class SigninForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoSignin = this.demoSignin.bind(this);
-    this.typeSlowly = this.typeSlowly.bind(this);
   }
 
   errors() {
