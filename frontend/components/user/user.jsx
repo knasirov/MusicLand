@@ -38,6 +38,7 @@ class User extends React.Component {
         <TrackListItem key={idx}
           id={track.id}
           title={track.title}
+          userId={id}
           userName={username}
           imageUrl={track.image_url}/>
       ))
