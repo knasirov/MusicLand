@@ -21,9 +21,9 @@ class Player extends React.Component {
   }
 
   pressPlay() {
-    // if (this.audio) {
-    //   when no audioUrl, just return
-    // }
+    if (!this.audio.currentSrc) {
+      return
+    }
     if (this.state.nowPlaying) {
       this.audio.pause();
       this.setState({ nowPlaying: false });
@@ -34,6 +34,7 @@ class Player extends React.Component {
   }
 
   updatePlayer() {
+    if (!(this.audio.currentTime && this.audio.duration)) { return }
     this.progressBar.value = this.audio.currentTime/this.audio.duration;
     this.forceUpdate();
   }
