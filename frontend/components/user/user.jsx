@@ -16,8 +16,10 @@ class User extends React.Component {
     this.props.fetchUser(this.props.id);
   };
 
-  componentWillUpdate() {
-    this.props.fetchUser(this.props.id);
+  componentWillReceiveProps(nextProps) {
+    if (this.props.id !== nextProps.id) {
+      this.props.fetchUser(nextProps.id);
+    }
   }
 
   openModal(e) {
@@ -40,7 +42,8 @@ class User extends React.Component {
           title={track.title}
           userId={id}
           userName={username}
-          imageUrl={track.image_url}/>
+          imageUrl={track.image_url}
+          fetchCurrentTrack={this.props.fetchCurrentTrack} />
       ))
     }
 

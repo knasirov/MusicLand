@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import User from './user';
 import { fetchUser, updateUser } from '../../actions/user_actions';
+import { fetchCurrentTrack } from '../../actions/track_actions';
 
 const mapStateToProps = ({ user, session }, { params }) => ({
   id: parseInt(params.userId),
@@ -14,8 +15,9 @@ const mapStateToProps = ({ user, session }, { params }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchUser: (id) => dispatch(fetchUser(id)),
-  updateUser: (formData) => dispatch(updateUser(formData))
+  fetchUser: id => dispatch(fetchUser(id)),
+  updateUser: (formData) => dispatch(updateUser(formData)),
+  fetchCurrentTrack: id => dispatch(fetchCurrentTrack(id))
 });
 
 export default connect(

@@ -1,0 +1,1240 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ */
+/* line 1, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/reset.scss */
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+/* line 19, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/reset.scss */
+ul {
+  list-style: none;
+}
+
+/* line 23, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/reset.scss */
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* line 29, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/reset.scss */
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* line 44, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/reset.scss */
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+/* Clearfix */
+/* line 51, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/reset.scss */
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* line 1, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/colors.scss */
+.red {
+  color: red;
+}
+
+/* line 5, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/colors.scss */
+.orange {
+  color: #f50;
+}
+
+/* line 1, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/fonts.scss */
+body {
+  font-family: sans-serif;
+}
+
+/* line 1, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/layout.scss */
+.window {
+  display: flex;
+  background-color: #e5e5e5;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 900px;
+}
+
+/* line 10, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/layout.scss */
+.main-content {
+  background-color: white;
+  min-width: 900px;
+  width: 80%;
+  min-height: calc(100vh - 46px);
+  margin-bottom: 45px;
+}
+
+/* line 1, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+  -o-transition: opacity .15s linear;
+  transition: opacity 0.15s linear;
+}
+
+/* line 8, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.fade.in {
+  opacity: 1;
+}
+
+/* line 12, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+  filter: alpha(opacity=20);
+}
+
+/* line 23, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: .5;
+  filter: alpha(opacity=50);
+}
+
+/* line 31, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+
+/* line 39, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-open {
+  overflow: hidden;
+}
+
+/* line 43, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 15%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+
+/* line 56, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal.fade .modal-dialog {
+  -webkit-transform: translate(0, -25%);
+  -ms-transform: translate(0, -25%);
+  -o-transform: translate(0, -25%);
+  transform: translate(0, -25%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+
+/* line 67, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+/* line 74, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* line 79, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+
+/* line 85, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  outline: 0;
+}
+
+/* line 97, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+}
+
+/* line 107, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+/* line 112, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-backdrop.in {
+  opacity: .5;
+  filter: alpha(opacity=50);
+}
+
+/* line 117, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  min-height: 16.42857px;
+}
+
+/* line 123, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-header .close {
+  margin-top: -2px;
+}
+
+/* line 127, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-title {
+  margin: 0;
+  line-height: 1.42857;
+}
+
+/* line 132, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-body {
+  position: relative;
+  padding: 15px;
+}
+
+/* line 137, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* line 143, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-footer .btn + .btn {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+
+/* line 148, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+
+/* line 152, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-footer .btn-block + .btn-block {
+  margin-left: 0;
+}
+
+@media (min-width: 450px) {
+  /* line 157, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+  .modal-dialog {
+    width: 350px;
+    margin: 30px auto;
+  }
+
+  /* line 161, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  /* line 165, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+  .modal-sm {
+    width: 300px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 171, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+  .modal-lg {
+    width: 900px;
+  }
+}
+/* line 176, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.animated {
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-moz-keyframes shake {
+  0%, 100% {
+    -moz-transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    -moz-transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    -moz-transform: translateX(10px);
+  }
+}
+@-o-keyframes shake {
+  0%, 100% {
+    -o-transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    -o-transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    -o-transform: translateX(10px);
+  }
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}
+/* line 235, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.shake {
+  -webkit-animation-name: shake;
+  -moz-animation-name: shake;
+  -o-animation-name: shake;
+  animation-name: shake;
+}
+
+/* line 242, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal {
+  display: block;
+}
+
+/* line 246, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+.modal-content > .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+@media (min-width: 768px) {
+  /* line 253, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+  .modal-sm > .modal-dialog {
+    width: 300px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 259, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/base/modal.scss */
+  .modal-lg > .modal-dialog {
+    width: 900px;
+  }
+}
+/* line 1, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/comment.scss */
+.comment-li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+/* line 8, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/comment.scss */
+.comment-li:hover .comment-delete-btn {
+  display: block;
+}
+
+/* line 13, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/comment.scss */
+.comment-delete-btn {
+  display: none;
+  padding: 4px 5px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+/* line 21, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/comment.scss */
+.img-n-detail {
+  display: flex;
+}
+
+/* line 25, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/comment.scss */
+.comment-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+/* line 32, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/comment.scss */
+.comment-img img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  object-fit: cover;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 43, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/comment.scss */
+.comment-username {
+  color: #999;
+  font-size: 12px;
+}
+/* line 47, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/comment.scss */
+.comment-username:hover {
+  color: black;
+}
+
+/* line 52, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/comment.scss */
+.comment-body {
+  font-size: 12px;
+}
+
+/* line 56, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/comment.scss */
+.comment-detail {
+  display: flex;
+  flex-direction: column;
+  padding: 3px 10px;
+}
+
+/* line 1, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/form.scss */
+.signin-form, .signup-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+/* line 10, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/form.scss */
+.signin-form input, .signup-form input {
+  box-sizing: border-box;
+  border: 1px solid #333;
+  border-radius: 3px;
+  padding: 5px;
+  width: 100%;
+  font-size: 18px;
+}
+/* line 19, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/form.scss */
+.signin-form input[type='submit'], .signup-form input[type='submit'] {
+  background-color: #f50;
+  border-color: #f50;
+  color: white;
+  text-align: center;
+  font-weight: normal;
+}
+
+/* line 29, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/form.scss */
+.edit-form-input {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 34, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/form.scss */
+input {
+  border: 1px #333 solid;
+  border-radius: 5px;
+}
+
+/* line 39, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/form.scss */
+.edit-form {
+  display: flex;
+}
+
+/* line 43, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/form.scss */
+.edit-form-img {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+}
+
+/* line 53, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/form.scss */
+.demo-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* line 60, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/form.scss */
+.demo-btn {
+  background: #f50;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  color: #BFBFBF;
+}
+/* line 67, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/form.scss */
+.demo-btn:hover {
+  color: white;
+}
+
+/* line 1, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/navbar.scss */
+.full-navbar {
+  background: #333;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* line 8, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/navbar.scss */
+.top-navbar {
+  display: flex;
+  justify-content: space-between;
+  min-width: 900px;
+  height: 46px;
+  width: 80%;
+  align-items: center;
+  vertical-align: center;
+  font-size: 14px;
+  font-family: Verdana, Tahoma, sans-serif;
+  color: #999;
+}
+
+/* line 21, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/navbar.scss */
+.left-navbar {
+  display: flex;
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+}
+/* line 28, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/navbar.scss */
+.left-navbar a {
+  width: 100px;
+  vertical-align: middle;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 37, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/navbar.scss */
+.right-border {
+  border-right: 1px solid black;
+}
+
+/* line 41, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/navbar.scss */
+.navbar-logo {
+  height: 46px;
+  width: auto;
+}
+
+/* line 46, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/navbar.scss */
+.logged-out-btn {
+  background: transparent;
+  color: #eee;
+}
+
+/* line 51, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/navbar.scss */
+.top-item {
+  cursor: pointer;
+  padding: 5px 15px;
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+  overflow: hidden;
+}
+/* line 59, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/navbar.scss */
+.top-item:hover {
+  color: #eee;
+}
+
+/* line 64, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/navbar.scss */
+.create-acc {
+  background: #f50;
+  height: 100%;
+}
+
+/* line 69, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/navbar.scss */
+.search-bar {
+  background-color: #e5e5e5;
+}
+/* line 72, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/navbar.scss */
+.search-bar:focus {
+  background-color: white;
+}
+
+/* line 77, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/navbar.scss */
+#username {
+  max-width: 40px;
+}
+
+/* line 81, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/navbar.scss */
+.right-navbar {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/* line 1, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+.extended-player {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  min-width: 900px;
+  width: 100%;
+  background-color: #e5e5e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px #bfbfbf solid;
+  border-bottom: 1px solid #bfbfbf;
+  height: 46px;
+}
+
+/* line 16, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+.player {
+  min-width: 900px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* line 24, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+.player-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
+}
+/* line 29, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+.player-buttons button {
+  display: flex;
+  justify-content: center;
+  font-size: 22px;
+}
+
+/* line 36, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+.player-track-detail {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+/* line 42, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+.player-img {
+  border: none;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  margin: 8px;
+}
+/* line 50, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+.player-img img {
+  border: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  object-fit: cover;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 62, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+.player-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* line 68, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+.player-user {
+  color: #999;
+  font-size: 10px;
+}
+/* line 72, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+.player-user:hover {
+  color: black;
+}
+
+/* line 77, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+.player-track {
+  color: #666;
+  font-size: 12px;
+}
+/* line 81, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+.player-track:hover {
+  color: black;
+}
+
+/* line 86, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+.progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+/* line 92, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+.progress-bar span {
+  font-size: 11px;
+}
+/* line 95, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+.progress-bar span:first-child {
+  color: #f50;
+}
+
+/* line 101, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+#progress-bar {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: #bfbfbf;
+  color: #f50;
+  width: 80%;
+  height: 2px;
+  margin: 0 10px;
+}
+
+/* line 116, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/player.scss */
+#progress-bar::-webkit-progress-value {
+  background: #f50;
+}
+
+/* line 1, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/stream.scss */
+.stream-main {
+  padding: 30px;
+}
+
+/* line 5, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/stream.scss */
+.stream-navbar {
+  border-bottom: 1px #e5e5e5 solid;
+  font-size: 24px;
+}
+/* line 9, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/stream.scss */
+.stream-navbar h2 {
+  display: inline;
+  border-bottom: 1px #f50 solid;
+  color: #f50;
+}
+
+/* line 16, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/stream.scss */
+.stream-list {
+  margin-top: 25px;
+}
+
+/* line 1, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-page {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 6, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 380px;
+  background: radial-gradient(#F49D46 10%, #333);
+  align-items: center;
+}
+
+/* line 15, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-img {
+  position: relative;
+  overflow: hidden;
+  width: 340px;
+  height: 340px;
+  margin: 0 25px;
+}
+/* line 22, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-img img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  object-fit: cover;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 33, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-info {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+/* line 39, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-info a, .track-info span {
+  background-color: black;
+  margin: 2px;
+  padding: 4px 7px;
+}
+/* line 45, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-info a {
+  font-size: 16px;
+  color: #ccc;
+}
+/* line 49, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-info a:hover {
+  color: white;
+}
+/* line 54, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-info span {
+  font-size: 24px;
+  color: white;
+}
+
+/* line 60, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-page-bottom {
+  display: flex;
+}
+
+/* line 64, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.description-n-comments {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 50%;
+}
+
+/* line 71, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.owner-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+}
+/* line 79, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.owner-img img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  object-fit: cover;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 90, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-artist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+}
+/* line 96, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-artist a {
+  text-align: center;
+}
+
+/* line 101, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.comment-box {
+  width: 65%;
+  height: 40px;
+  display: flex;
+  margin: 5px 0;
+}
+
+/* line 108, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.comment-user-img {
+  position: relative;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+}
+/* line 114, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.comment-user-img img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  object-fit: cover;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 125, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-page-middle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+/* line 132, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.comment-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e5e5e5;
+}
+
+/* line 140, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.comment-input {
+  background-color: white;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 10px;
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+/* line 149, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.description {
+  padding: 0 10px 30px 10px;
+}
+
+/* line 153, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.comments-header {
+  display: block;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 5px 10px;
+  color: #999;
+}
+
+/* line 160, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.no-comments {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+}
+/* line 167, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.no-comments span {
+  margin: 10px;
+  font-size: 18px;
+}
+
+/* line 173, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.comments-list {
+  width: 100%;
+}
+/* line 176, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.comments-list li:nth-of-type(2n) {
+  background-color: #e5e5e5;
+}
+
+/* line 181, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-ud-btns {
+  font-size: 14px;
+}
+/* line 184, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-ud-btns button {
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 4px 7px;
+  margin-right: 10px;
+  color: #ccc;
+}
+/* line 191, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track.scss */
+.track-ud-btns button:hover {
+  color: black;
+}
+
+/* line 1, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track_list_item.scss */
+.list-item {
+  display: flex;
+  margin-bottom: 36px;
+}
+
+/* line 6, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track_list_item.scss */
+.li-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* line 12, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track_list_item.scss */
+.li-img {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  margin-right: 15px;
+}
+/* line 19, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track_list_item.scss */
+.li-img img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  object-fit: cover;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 30, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track_list_item.scss */
+.detail-n-waveform {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 35, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track_list_item.scss */
+.btn-n-detail {
+  display: flex;
+}
+
+/* line 39, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track_list_item.scss */
+.play-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  color: #f50;
+}
+
+/* line 49, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/track_list_item.scss */
+.tl-user {
+  color: #999;
+  font-size: 12px;
+}
+
+/* line 1, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/upload.scss */
+.file-input {
+  display: none;
+}
+
+/* line 5, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/upload.scss */
+.audio-label {
+  color: white;
+  background: #f50;
+  border: 1px #f50 solid;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+/* line 14, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/upload.scss */
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 20, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/upload.scss */
+.form1 {
+  margin: 150px;
+  margin-bottom: 50px;
+}
+
+/* line 25, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/upload.scss */
+.form2 {
+  display: flex;
+}
+
+/* line 29, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/upload.scss */
+.upload-img-preview {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  overflow: hidden;
+  margin-right: 15px;
+}
+/* line 36, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/upload.scss */
+.upload-img-preview img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  object-fit: cover;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 47, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/upload.scss */
+.upload-img-btn {
+  position: absolute;
+  cursor: pointer;
+  background-color: white;
+  font-size: 12px;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px #333 solid;
+  border-radius: 2px;
+  padding: 4px;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+/* line 64, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/upload.scss */
+.upload-img-btn label {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+/* line 70, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/upload.scss */
+.upload-detail-input {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 1, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/user.scss */
+.user-page {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 6, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/user.scss */
+.user-header {
+  display: flex;
+  width: 100%;
+  height: 260px;
+  background: radial-gradient(#F49D46 10%, #333);
+  align-items: center;
+}
+
+/* line 14, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/user.scss */
+.user-img {
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  margin: 0 25px;
+}
+/* line 23, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/user.scss */
+.user-img .img {
+  z-index: 1;
+  opacity: 1;
+}
+
+/* line 29, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/user.scss */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+}
+
+/* line 35, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/user.scss */
+.username, .location {
+  display: inline;
+  background: black;
+  padding: 4px 7px;
+  margin: 2px;
+}
+
+/* line 42, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/user.scss */
+.username {
+  color: white;
+  font-size: 24px;
+}
+
+/* line 47, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/user.scss */
+.location {
+  color: #e5e5e5;
+  font-size: 16px;
+}
+
+/* line 52, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/user.scss */
+.outer-middle {
+  padding: 20px;
+}
+
+/* line 55, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/user.scss */
+.middle-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* line 62, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/user.scss */
+.middle-bar, .track-list {
+  padding: 0 20px;
+}
+
+/* line 1, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/welcome.scss */
+.welcome-header {
+  display: block;
+  position: relative;
+  background-size: cover;
+}
+/* line 6, /home/khalil/aa/MusicLandApp/app/assets/stylesheets/components/welcome.scss */
+.welcome-header h2 {
+  width: 600px;
+  position: absolute;
+  z-index: 1;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}

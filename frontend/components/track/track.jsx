@@ -27,6 +27,12 @@ class Track extends React.Component {
     this.props.fetchTrack(this.props.id);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.id !== nextProps.id) {
+      this.props.fetchTrack(nextProps.id);
+    }
+  }
+
   checkSignin() {
     if (!this.props.currentUser) {
       document.getElementById('comment-form').blur();
