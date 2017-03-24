@@ -3,7 +3,7 @@ import * as TrackAPIUtil from '../util/track_api_util';
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_TRACK = "RECEIVE_TRACK";
 export const REMOVE_TRACK = "REMOVE_TRACK";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const RECEIVE_TRACK_ERRORS = "RECEIVE_TRACK_ERRORS";
 export const RECEIVE_CURRENT_TRACK = "RECEIVE_CURRENT_TRACK";
 
 export const receiveTracks = tracks => ({
@@ -16,20 +16,13 @@ export const receiveTrack = track => ({
   track
 });
 
-
 export const receiveCurrentTrack = track => ({
   type: RECEIVE_CURRENT_TRACK,
   track
 });
 
-// NOT SURE IF I NEED THIS
-// export const removeTrack = track => ({
-//   type: REMOVE_TRACK,
-//   track
-// });
-
 export const receiveTrackErrors = errors => ({
-  type: RECEIVE_ERRORS,
+  type: RECEIVE_TRACK_ERRORS,
   errors
 });
 
@@ -58,10 +51,8 @@ export const createTrack = formData => dispatch => (
 export const updateTrack = formData => dispatch => (
   TrackAPIUtil.updateTrack(formData)
     .then(res => dispatch(receiveTrack(res)))
-    .fail(err => dispatch(receiveErrors(err.responseJSON)))
 );
 
-export const deleteTrack = id => dispatch => (
-  TrackAPIUtil.deleteTrack(id)
-    // .then(res => dispatch(removeTrack(res)))
-);
+// export const deleteTrack = id => dispatch => (
+//   TrackAPIUtil.deleteTrack(id)
+// );

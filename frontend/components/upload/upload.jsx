@@ -32,6 +32,7 @@ class Upload extends React.Component {
   }
 
   updateAudio(e) {
+    e.preventDefault();
     this.setState({ audioFile: e.currentTarget.files[0] })
   }
 

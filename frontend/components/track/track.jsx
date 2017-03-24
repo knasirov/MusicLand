@@ -26,10 +26,12 @@ class Track extends React.Component {
   }
 
   updateComment(e) {
+    e.preventDefault();
     this.setState({ commentBody: e.target.value })
   }
 
   submitComment(e) {
+    e.preventDefault();
     const { currentUser, id, fetchTrack } = this.props;
     if (e.key === 'Enter') {
       createComment({
