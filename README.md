@@ -6,6 +6,8 @@
 
 MusicLand is a web application inspired by SoundCloud. Users can discover artists and stream their music or upload their own and share it with the community.   
 
+![alt text](https://github.com/knasirov/MusicLand/blob/master/docs/splah-page.png "Splash Page")
+
 ## Features
 
 - User accounts with secure authentication
@@ -14,6 +16,7 @@ MusicLand is a web application inspired by SoundCloud. Users can discover artist
 - Image uploading for users and tracks
 - Commenting on tracks
 
+![alt text](https://github.com/knasirov/MusicLand/blob/master/docs/track-page.png "Track Page")
 
 ## Project Design
 
