@@ -28,6 +28,7 @@ class SigninForm extends React.Component {
 
   demoSignin(e) {
     e.preventDefault();
+    e.persist();
     this.setState({ email: 'DemoUser@MusicLand', password: 'randompassword' }, () => (
       this.handleSubmit(e)
     ))
@@ -35,13 +36,14 @@ class SigninForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signin(merge({}, this.state));
-    this.state = { email: "", password: "" };
+    this.props.signin(merge({}, this.state)).then( () => {
+      this.state = { email: "", password: "" };
 
-    const { router } = this.props;
-    if ( router.location.pathname === '/') {
-      router.push('/stream');
-    }
+      const { router } = this.props;
+      if ( router.location.pathname === '/') {
+        router.push('/stream');
+      }
+    });
   }
 
   render() {

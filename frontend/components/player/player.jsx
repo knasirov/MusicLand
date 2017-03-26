@@ -40,11 +40,9 @@ class Player extends React.Component {
   }
 
   render() {
-    let playPause
+    let playPause = (<i className="fa fa-play" aria-hidden="true"></i>)
     if (this.state.nowPlaying) {
       playPause = (<i className="fa fa-pause" aria-hidden="true"></i>)
-    } else {
-      playPause = (<i className="fa fa-play" aria-hidden="true"></i>)
     }
 
     const convertTime = function(t) {
