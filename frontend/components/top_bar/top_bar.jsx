@@ -92,10 +92,10 @@ class TopBar extends React.Component {
       <div className="full-navbar">
         <div className="top-navbar">
           <div className="left-navbar">
-            <a href='/'>
+            <Link to='/'>
               <img className="navbar-logo" alt="logo" to='/'
                 src="http://www.adhdnationbook.com/wp-content/uploads/2016/09/LOGO-Soundcloud.png" />
-            </a>
+            </Link>
             <Link className='top-item right-border' to="/">Home</Link>
             <Link className='top-item right-border' to="/stream">Stream</Link>
           </div>

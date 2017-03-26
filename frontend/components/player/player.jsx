@@ -6,6 +6,8 @@ class Player extends React.Component {
     super(props);
     this.state = { nowPlaying: false };
     this.pressPlay = this.pressPlay.bind(this);
+    this.stepBackwards = this.stepBackwards.bind(this);
+    this.stepForward = this.stepForward.bind(this);
     this.updatePlayer = this.updatePlayer.bind(this);
   }
 
@@ -31,6 +33,14 @@ class Player extends React.Component {
       this.audio.play();
       this.setState({ nowPlaying: true });
     }
+  }
+
+  stepBackwards() {
+    this.audio.currentTime = this.audio.currentTime - 15;
+  }
+
+  stepForward() {
+    this.audio.currentTime = this.audio.currentTime + 15;
   }
 
   updatePlayer() {
@@ -68,13 +78,13 @@ class Player extends React.Component {
       <div className='extended-player'>
         <div className='player'>
           <div className='player-buttons'>
-            <button>
+            <button onClick={this.stepBackwards}>
               <i className="fa fa-step-backward" aria-hidden="true"></i>
             </button>
             <button onClick={this.pressPlay}>
               {playPause}
             </button>
-            <button>
+            <button onClick={this.stepForward}>
               <i className="fa fa-step-forward" aria-hidden="true"></i>
             </button>
           </div>
