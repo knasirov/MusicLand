@@ -94,7 +94,7 @@ class TopBar extends React.Component {
           <div className="left-navbar">
             <Link to='/'>
               <img className="navbar-logo" alt="logo" to='/'
-                src="http://www.adhdnationbook.com/wp-content/uploads/2016/09/LOGO-Soundcloud.png" />
+                src="" />
             </Link>
             <Link className='top-item right-border' to="/">Home</Link>
             <Link className='top-item right-border' to="/stream">Stream</Link>

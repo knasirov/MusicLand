@@ -5,7 +5,8 @@ import { fetchTracks, fetchCurrentTrack } from '../../actions/track_actions';
 
 
 const mapStateToProps = state => ({
-  tracks: state.tracks
+  tracks: state.tracks,
+  currentTrackId: state.currentTrack.id
 });
 
 const mapDispatchToProps = dispatch => ({

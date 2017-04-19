@@ -1,12 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import { fetchCurrentTrack } from '../../actions/track_actions';
-
 class TrackListItem extends React.Component {
 
   render () {
-    const { id, userId, userName, title, imageUrl } = this.props;
+    const { id, userId, userName, title, imageUrl, currentTrackId } = this.props;
+    let button;
+    if (id === currentTrackId) {
+
+    } else {
+      button = (
+        <button onClick={() => this.props.fetchCurrentTrack(id)}>
+          <i className="fa fa-play-circle" aria-hidden="true"></i>
+        </button>
+      )
+    }
+
     return (
       <li className='list-item'>
         <div className='li-img'>
@@ -16,9 +25,7 @@ class TrackListItem extends React.Component {
         <div className='detail-n-waveform'>
           <div className='btn-n-detail'>
             <div className='play-btn'>
-              <button onClick={() => this.props.fetchCurrentTrack(id)}>
-                <i className="fa fa-play-circle" aria-hidden="true"></i>
-              </button>
+              {button}
             </div>
 
             <div className='li-detail'>
