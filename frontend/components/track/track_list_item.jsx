@@ -4,13 +4,26 @@ import { Link } from 'react-router';
 class TrackListItem extends React.Component {
 
   render () {
-    const { id, userId, userName, title, imageUrl, currentTrackId } = this.props;
+    const { id, userId, userName, title, imageUrl, currentTrackId, currentTrackIsPlaying,
+      updatePlayerStatus, fetchCurrentTrack } = this.props;
     let button;
     if (id === currentTrackId) {
-
+      if (currentTrackIsPlaying) {
+        button = (
+          <button onClick={() => updatePlayerStatus(false)}>
+            <i className="fa fa-pause-circle" aria-hidden="true"></i>
+          </button>
+        )
+      } else {
+        button = (
+          <button onClick={() => updatePlayerStatus(true)}>
+            <i className="fa fa-play-circle" aria-hidden="true"></i>
+          </button>
+        )
+      }
     } else {
       button = (
-        <button onClick={() => this.props.fetchCurrentTrack(id)}>
+        <button onClick={() => fetchCurrentTrack(id)}>
           <i className="fa fa-play-circle" aria-hidden="true"></i>
         </button>
       )

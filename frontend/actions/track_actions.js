@@ -4,6 +4,7 @@ export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_TRACK = "RECEIVE_TRACK";
 export const RECEIVE_TRACK_ERRORS = "RECEIVE_TRACK_ERRORS";
 export const RECEIVE_CURRENT_TRACK = "RECEIVE_CURRENT_TRACK";
+export const RECEIVE_PLAYER_STATUS = "RECEIVE_PLAYER_STATUS";
 
 export const receiveTracks = tracks => ({
   type: RECEIVE_TRACKS,
@@ -18,6 +19,11 @@ export const receiveTrack = track => ({
 export const receiveCurrentTrack = track => ({
   type: RECEIVE_CURRENT_TRACK,
   track
+});
+
+export const updatePlayerStatus = status => ({
+  type: RECEIVE_PLAYER_STATUS,
+  status
 });
 
 export const receiveTrackErrors = errors => ({

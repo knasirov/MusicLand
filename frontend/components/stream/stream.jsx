@@ -9,7 +9,7 @@ class Stream extends React.Component {
   }
 
   render() {
-    const { currentTrackId, fetchCurrentTrack } = this.props;
+    const { currentTrackId, currentTrackIsPlaying, updatePlayerStatus, fetchCurrentTrack } = this.props;
     let listItems = this.props.tracks.map( (track, idx) => (
       <TrackListItem key={idx}
         id={track.id}
@@ -18,6 +18,8 @@ class Stream extends React.Component {
         title={track.title}
         imageUrl={track.image_url}
         currentTrackId={currentTrackId}
+        currentTrackIsPlaying={currentTrackIsPlaying}
+        updatePlayerStatus={updatePlayerStatus}
         fetchCurrentTrack={fetchCurrentTrack} />
     ));
 

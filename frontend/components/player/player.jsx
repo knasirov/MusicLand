@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 class Player extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { nowPlaying: false };
     this.pressPlay = this.pressPlay.bind(this);
     this.stepBackwards = this.stepBackwards.bind(this);
     this.stepForward = this.stepForward.bind(this);
@@ -17,21 +16,26 @@ class Player extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.audio.src = nextProps.currentTrack.audio_url;
-    this.audio.play();
-    this.setState({ nowPlaying: true });
+    if (this.props.currentTrack.id !== nextProps.currentTrack.id) {
+      this.audio.src = nextProps.currentTrack.audio_url;
+      this.audio.play();
+      this.props.updateStatus(true);
+    }
+    if (this.props.currentTrack.isPlaying !== nextProps.currentTrack.isPlaying) {
+      this.pressPlay()
+    }
   }
 
   pressPlay() {
     if (!this.audio.currentSrc) {
       return
     }
-    if (this.state.nowPlaying) {
+    if (this.props.currentTrack.isPlaying) {
       this.audio.pause();
-      this.setState({ nowPlaying: false });
+      this.props.updateStatus(false);
     } else {
       this.audio.play();
-      this.setState({ nowPlaying: true });
+      this.props.updateStatus(true);
     }
   }
 
@@ -51,7 +55,7 @@ class Player extends React.Component {
 
   render() {
     let playPause = (<i className="fa fa-play" aria-hidden="true"></i>)
-    if (this.state.nowPlaying) {
+    if (this.props.currentTrack.isPlaying) {
       playPause = (<i className="fa fa-pause" aria-hidden="true"></i>)
     }
 
