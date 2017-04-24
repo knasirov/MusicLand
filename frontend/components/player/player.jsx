@@ -7,6 +7,7 @@ class Player extends React.Component {
     this.pressPlay = this.pressPlay.bind(this);
     this.stepBackwards = this.stepBackwards.bind(this);
     this.stepForward = this.stepForward.bind(this);
+    this.updateTimer = this.updateTimer.bind(this);
     this.updatePlayer = this.updatePlayer.bind(this);
   }
 
@@ -47,10 +48,17 @@ class Player extends React.Component {
     this.audio.currentTime = this.audio.currentTime + 15;
   }
 
-  updatePlayer() {
+  updateTimer() {
     if (!(this.audio.currentTime && this.audio.duration)) { return }
     this.progressBar.value = this.audio.currentTime/this.audio.duration;
     this.forceUpdate();
+  }
+
+  updatePlayer(e) {
+    e.preventDefault();
+    if (!(this.audio.currentTime && this.audio.duration)) { return }
+    let percent = (e.clientX - this.progressBar.offsetLeft) / this.progressBar.offsetWidth
+    this.audio.currentTime = this.audio.duration * percent
   }
 
   render() {
@@ -96,8 +104,9 @@ class Player extends React.Component {
           <div className='progress-bar'>
             <span>{currentTime}</span>
 
-            <progress id='progress-bar' value='0'>
-            </progress>
+            <div className='clickable-bar' onClick={this.updatePlayer}>
+              <progress id='progress-bar' value='0'></progress>
+            </div>
 
             <span>{duration}</span>
           </div>
@@ -113,7 +122,7 @@ class Player extends React.Component {
             </div>
           </div>
 
-          <audio id='audio-tag' loop='true' onTimeUpdate={this.updatePlayer}>
+          <audio id='audio-tag' loop='true' onTimeUpdate={this.updateTimer}>
             <source src={audio_url}></source>
           </audio>
         </div>
