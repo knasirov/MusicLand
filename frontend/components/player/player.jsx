@@ -23,13 +23,13 @@ class Player extends React.Component {
       this.props.updateStatus(true);
     }
     if (this.props.currentTrack.isPlaying !== nextProps.currentTrack.isPlaying) {
-      this.pressPlay()
+      this.pressPlay();
     }
   }
 
   pressPlay() {
     if (!this.audio.currentSrc) {
-      return
+      return;
     }
     if (this.props.currentTrack.isPlaying) {
       this.audio.pause();
@@ -49,31 +49,31 @@ class Player extends React.Component {
   }
 
   updateTimer() {
-    if (!(this.audio.currentTime && this.audio.duration)) { return }
+    if (!(this.audio.currentTime && this.audio.duration)) { return; }
     this.progressBar.value = this.audio.currentTime/this.audio.duration;
     this.forceUpdate();
   }
 
   updatePlayer(e) {
     e.preventDefault();
-    if (!(this.audio.currentTime && this.audio.duration)) { return }
-    let percent = (e.clientX - this.progressBar.offsetLeft) / this.progressBar.offsetWidth
-    this.audio.currentTime = this.audio.duration * percent
+    if (!(this.audio.currentTime && this.audio.duration)) { return; }
+    let percent = (e.clientX - this.progressBar.offsetLeft) / this.progressBar.offsetWidth;
+    this.audio.currentTime = this.audio.duration * percent;
   }
 
   render() {
-    let playPause = (<i className="fa fa-play" aria-hidden="true"></i>)
+    let playPause = (<i className="fa fa-play" aria-hidden="true"></i>);
     if (this.props.currentTrack.isPlaying) {
-      playPause = (<i className="fa fa-pause" aria-hidden="true"></i>)
+      playPause = (<i className="fa fa-pause" aria-hidden="true"></i>);
     }
 
     const convertTime = function(t) {
       if (t % 60 < 10) {
-        return `${Math.floor(t/60)}:0${Math.floor(t % 60)}`
+        return `${Math.floor(t/60)}:0${Math.floor(t % 60)}`;
       } else {
-        return `${Math.floor(t/60)}:${Math.floor(t % 60)}`
+        return `${Math.floor(t/60)}:${Math.floor(t % 60)}`;
       }
-    }
+    };
 
     let currentTime, duration;
     if (this.audio && this.audio.duration) {
@@ -127,7 +127,7 @@ class Player extends React.Component {
           </audio>
         </div>
       </div>
-    )
+    );
   }
 }
 
