@@ -1,7 +1,7 @@
 {
   "name": "MusicLandApp",
   "version": "1.0.0",
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "description": "Music streaming app",
   "main": "index.js",
   "directories": {
     "doc": "docs",

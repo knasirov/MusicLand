@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 gem 'rails_12factor'
-gem 'pry-rails'
 gem 'figaro'
 gem 'paperclip', '~> 5.0.0.beta1'
 gem 'aws-sdk', '>= 2.0'
@@ -39,6 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry-rails'
 end
 
 group :development do
