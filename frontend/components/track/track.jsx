@@ -41,7 +41,7 @@ class Track extends React.Component {
   }
 
   updateComment(e) {
-    this.setState({ commentBody: e.target.value })
+    this.setState({ commentBody: e.target.value });
   }
 
   submitComment(e) {
@@ -53,7 +53,7 @@ class Track extends React.Component {
           user_id: currentUser.id,
           track_id: id
         }
-      }).then(() => fetchTrack(id))
+      }).then(() => fetchTrack(id));
 
       this.setState({ commentBody: "" });
     }
@@ -72,10 +72,11 @@ class Track extends React.Component {
     e.preventDefault();
     let id = this.props.userId;
     this.props.deleteTrack(this.props.id)
-      .then( () => this.props.router.push(`/users/${id}`))
+      .then( () => this.props.router.push(`/users/${id}`));
   }
 
   render() {
+    console.log('there is a change');
     const { id, title, description, userId, userName, userImg, imageUrl, comments, currentUser } = this.props;
     let commentsList;
     if (!comments || (comments.length === 0)) {
@@ -84,7 +85,7 @@ class Track extends React.Component {
           <span>Seems a little quiet over here</span>
           <span>Be the first one to comment on this track</span>
         </div>
-      )
+      );
     } else {
       commentsList = comments.map( (comment, idx) => (
         <Comment key={idx}
@@ -97,12 +98,12 @@ class Track extends React.Component {
           currentUser={currentUser}
           trackId={id}
           fetchTrack={this.props.fetchTrack} />
-      ))
+      ));
     }
 
     let descriptionBox;
     if (description) {
-      descriptionBox = (<div className='description'>{description}</div>)
+      descriptionBox = (<div className='description'>{description}</div>);
     }
 
     let userButtons;
@@ -131,14 +132,14 @@ class Track extends React.Component {
             </Modal.Header>
           </Modal>
         </div>
-      )
+      );
     }
 
     let commentUserImg;
     if (currentUser) {
       commentUserImg = currentUser.image_url;
     } else {
-      commentUserImg = "https://s3.amazonaws.com/musicland-dev/users/images/default_user.png"
+      commentUserImg = "https://s3.amazonaws.com/musicland-dev/users/images/default_user.png";
     }
 
     return (
@@ -194,7 +195,7 @@ class Track extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
