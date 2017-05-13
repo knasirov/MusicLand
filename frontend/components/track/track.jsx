@@ -76,7 +76,6 @@ class Track extends React.Component {
   }
 
   render() {
-    console.log('there is a change');
     const { id, title, description, userId, userName, userImg, imageUrl, comments, currentUser } = this.props;
     let commentsList;
     if (!comments || (comments.length === 0)) {
