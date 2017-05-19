@@ -147,6 +147,7 @@ class Track extends React.Component {
           <div className='track-info'>
             <Link to={`/users/${userId}`} className='track-username'>{userName}</Link>
             <span className='track-title'>{title}</span>
+            <div id="waveform"> waveform here </div>
           </div>
 
           <div className='track-img'>

@@ -31,7 +31,7 @@
 }
 
 .track-info {
-  width: 300px;
+  width: 500px;
   height:300px;
   display: flex;
   flex-direction: column;
@@ -192,4 +192,10 @@
       color: black;
     }
   }
+}
+
+#waveform {
+  height: 50px;
+  width: 100%;
+  background-color: white;
 }
